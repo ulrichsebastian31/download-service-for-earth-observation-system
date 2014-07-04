@@ -1,0 +1,1 @@
+call java -jar "C:\Users\re-sulrich\My Projects\DreamProject\MMFA System\DreamDBInitialiser\target\DreamDBInitialiser-1.0-SNAPSHOT-jar-with-dependencies.jar" 10.2.200.247:5432 opensourcedbms opensourcedbms
