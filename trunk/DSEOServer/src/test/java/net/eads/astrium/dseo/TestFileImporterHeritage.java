@@ -5,9 +5,9 @@
 
 package net.eads.astrium.dseo;
 
-import net.eads.astrium.dseo.ds.database.DSDBHandler;
-import net.eads.astrium.dseo.ds.fileimport.FileImporter;
-import net.eads.astrium.dseo.ds.fileimport.FolderImporter;
+import net.eads.astrium.ips.dseo.ds.database.DSDBHandler;
+import net.eads.astrium.ips.dseo.ds.fileimport.FileImporter;
+import net.eads.astrium.ips.dseo.ds.fileimport.FolderImporter;
 import org.junit.Before;
 import org.junit.Test;
 

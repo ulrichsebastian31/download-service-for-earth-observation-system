@@ -20,6 +20,9 @@
  */
 package net.eads.astrium.dseo.dseodbinitialiser;
 
+import net.eads.astrium.dseo.dseodbinitialiser.admin.CreateAdminDatabase;
+import net.eads.astrium.dseo.dseodbinitialiser.admin.InsertColumnsWithNames;
+import net.eads.astrium.dseo.dseodbinitialiser.admin.InsertTablesWithNames;
 import net.eads.astrium.dseo.dseodbinitialiser.usermanagement.CreateUserStruct;
 import net.eads.astrium.dseo.util.logging.SysoRedirect;
 
@@ -78,6 +81,14 @@ public class RecreateDatabase {
            //If only DSEODatabase is required, exit, else do DownloadManagerDatabase
            if (toBeDone.equals("DSEODatabase")) break;
                
+           case "AdminDatabase":
+               TestConnexionParameter.setAdminDatabase("AdminDatabase");
+               TestConnexion.conn = TestConnexion.createAdminDBConnexion();
+               CreateAdminDatabase.createAdminTables();
+
+                InsertTablesWithNames.insertTables();
+                InsertColumnsWithNames.insertAllColumns();
+           break;
            default:
                System.out.println("Parameter 4 (Database name) does not match one of : DSEODatabase,UserDatabase");
             break;

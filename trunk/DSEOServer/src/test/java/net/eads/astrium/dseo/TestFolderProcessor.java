@@ -10,9 +10,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Map;
-import net.eads.astrium.dseo.ds.database.DSDBHandler;
-import net.eads.astrium.dseo.util.structures.DBFile;
-import net.eads.astrium.dseo.util.structures.usermanagement.MMFASUser;
+import net.eads.astrium.ips.dseo.ds.database.DSDBHandler;
+import net.eads.astrium.ips.util.structures.DBFile;
+import net.eads.astrium.ips.util.structures.usermanagement.MMFASUser;
 import org.junit.Before;
 import org.junit.Test;
 
