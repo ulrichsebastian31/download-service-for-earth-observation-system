@@ -105,13 +105,13 @@
         </dependency>
         
         <dependency>
-            <groupId>net.eads.astrium.dseo</groupId>
-            <artifactId>DSEOUtil</artifactId>
+            <groupId>net.eads.astrium.ips</groupId>
+            <artifactId>IPSUtil</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency> 
         <dependency>
-            <groupId>net.eads.astrium.dseo</groupId>
-            <artifactId>DSEODBHandler</artifactId>
+            <groupId>net.eads.astrium.ips</groupId>
+            <artifactId>IPSDBHandler</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency> 
         
@@ -132,14 +132,14 @@
         </dependency>
         
         <dependency>
-            <groupId>net.eads.astrium.dseo</groupId>
-            <artifactId>DSEOGenericServiceBDD</artifactId>
+            <groupId>net.eads.astrium.ips</groupId>
+            <artifactId>IPSGenericServiceBDD</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         
         <dependency>
-            <groupId>net.eads.astrium.dseo</groupId>
-            <artifactId>DSEOWPSServiceBDD</artifactId>
+            <groupId>net.eads.astrium.ips</groupId>
+            <artifactId>IPSWPSServiceBDD</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency> 
 		

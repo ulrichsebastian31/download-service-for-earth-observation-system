@@ -126,6 +126,53 @@ public class TestConnexion {
         return connection;
     }
     
+    public static Connection createAdminDBConnexion() {
+        Connection connection = null;
+        try {
+            Class.forName("org.postgresql.Driver");
+            System.out.println("Driver O.K.");
+            
+//            String url = "jdbc:postgresql://10.2.200.247:5432/MMFASDatabase";
+//            String url = "jdbc:postgresql://192.168.0.20:5432/MMFASDatabase";
+            
+//            String user = "opensourcedbms";
+//            String passwd = "opensourcedbms";
+            
+            System.out.println("jdbc:postgresql://" + TestConnexionParameter.getUrl() + "/DSEODatabase" 
+//                    + "/" + TestConnexionParameter.getDmDatabase()
+                );
+            
+            String url = "jdbc:postgresql://" + TestConnexionParameter.getUrl() + "/DSEODatabase" 
+//                    + "/" + TestConnexionParameter.getDmDatabase()
+                ;
+            
+            String user = TestConnexionParameter.getUser();
+            String passwd = TestConnexionParameter.getPass();
+            
+            connection = DriverManager.getConnection(url,user,passwd);
+            System.out.println("Connection started !");
+
+            //Setting schema
+            Statement stat = connection.createStatement();
+            try {
+                stat.executeQuery("SET search_path TO " + TestConnexionParameter.getAdminDatabase()+ ";");
+            } catch (SQLException e) {
+                if (e.getMessage().contains("No results were returned by the query")) {
+                    System.out.println("No results returned");
+                }
+                else {
+                    throw e;
+                }
+            }//            connection.setSchema(TestConnexionParameter.getDmDatabase());
+            System.out.println("Selecting schema : " + TestConnexionParameter.getAdminDatabase());
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return connection;
+    }
+    
     
     public static void testDropAndCreateSchema(String schema) throws SQLException {
         

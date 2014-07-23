@@ -14,6 +14,7 @@ public class TestConnexionParameter {
     private static String pass;
     private static String dseoDatabase;
     private static String userDatabase;
+    private static String adminDatabase;
 
     public static String getUrl() {
         return url;
@@ -55,4 +56,11 @@ public class TestConnexionParameter {
         TestConnexionParameter.userDatabase = userDatabase;
     }
 
+    public static String getAdminDatabase() {
+        return adminDatabase;
+    }
+
+    public static void setAdminDatabase(String adminDatabase) {
+        TestConnexionParameter.adminDatabase = adminDatabase;
+    }
 }

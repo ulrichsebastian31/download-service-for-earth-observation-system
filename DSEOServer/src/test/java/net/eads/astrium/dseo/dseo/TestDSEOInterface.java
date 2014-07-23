@@ -5,8 +5,8 @@
 
 package net.eads.astrium.dseo.dseo;
 
-import net.eads.astrium.dseo.ds.database.DSDBHandler;
-import net.eads.astrium.dseo.ds.dseo.MetalinkGenerator;
+import net.eads.astrium.ips.dseo.ds.database.DSDBHandler;
+import net.eads.astrium.ips.dseo.ds.dseo.MetalinkGenerator;
 import net.eads.astrium.ips.xmlparsing.OGCNamespacesXmlOptions;
 import net.opengis.dseo.x10.CapabilitiesDocument;
 import net.opengis.ows.x20.CodeType;

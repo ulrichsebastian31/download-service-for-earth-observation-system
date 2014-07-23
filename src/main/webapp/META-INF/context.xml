@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/DSEOServer">
-<Resource name="jdbc/DSEODatabase" auth="Container" type="javax.sql.DataSource" 
+<Resource name="jdbc/IPSDatabase" auth="Container" type="javax.sql.DataSource" 
     removeAbandoned="true" removeAbandonedTimeout="30" maxActive="80"   
     maxIdle="30" maxWait="10000" username="postgres" password="postgres"
     driverClassName="org.postgresql.Driver"

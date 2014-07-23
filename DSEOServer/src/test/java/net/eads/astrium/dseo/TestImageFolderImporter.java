@@ -7,11 +7,11 @@ package net.eads.astrium.dseo;
 
 import java.io.File;
 import java.util.Map;
-import net.eads.astrium.dseo.database.DBHandler;
-import net.eads.astrium.dseo.ds.database.DSDBHandler;
-import net.eads.astrium.dseo.ds.fileimport.FileImporter;
-import net.eads.astrium.dseo.ds.fileimport.ImageFolderImporter;
-import net.eads.astrium.dseo.util.structures.DBFile;
+import net.eads.astrium.ips.database.DBHandler;
+import net.eads.astrium.ips.dseo.ds.database.DSDBHandler;
+import net.eads.astrium.ips.dseo.ds.fileimport.FileImporter;
+import net.eads.astrium.ips.dseo.ds.fileimport.ImageFolderImporter;
+import net.eads.astrium.ips.util.structures.DBFile;
 import org.junit.Before;
 import org.junit.Test;
 
