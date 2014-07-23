@@ -84,51 +84,6 @@
             </build>
         </profile>
         
-        <profile>
-            <id>all</id>
-            <modules>
-                
-                <module>DSEOUtil</module>
-                <module>DSEODBHandler</module>
-                <module>DSEOGenericServiceBDD</module>
-                <module>DSEOWPSServiceBDD</module>
-                <module>DSEOServer</module>
-            </modules>
-            
-<!--            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>-->
-            
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <version>2.6</version>
-                        <executions>
-                            <execution>
-                                <id>copy-global-resources</id>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>${basedir}/target/classes</outputDirectory>
-                                    <includeEmptyDirs>true</includeEmptyDirs>
-                                    <resources>
-                                        <resource>
-                                            <targetPath>${basedir}/target/classes</targetPath>
-                                            <directory>${project.resources}/global</directory>
-                                            <filtering>true</filtering>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        
     </profiles>
     
     <build>
