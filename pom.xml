@@ -47,6 +47,10 @@
             <id>serveronly</id>
             <modules>
                 
+                <module>../MIPS System/IPSUtil</module>
+                <module>../MIPS System/IPSDBHandler</module>
+                <module>../MIPS System/IPSGenericServiceBDD</module>
+                <module>../MIPS System/IPSWPSServiceBDD</module>
                 <module>DSEOServer</module>
             </modules>
             
