@@ -79,6 +79,16 @@
                                             <directory>${project.resources}/global</directory>
                                             <filtering>true</filtering>
                                         </resource>
+                                        <resource>
+                                            <targetPath>${basedir}/target/classes</targetPath>
+                                            <directory>${project.resources}/wps</directory>
+                                            <filtering>false</filtering>
+                                        </resource>
+                                        <resource>
+                                            <targetPath>${basedir}/target/classes</targetPath>
+                                            <directory>${project.resources}/xsd</directory>
+                                            <filtering>false</filtering>
+                                        </resource>
                                     </resources>
                                 </configuration>
                             </execution>

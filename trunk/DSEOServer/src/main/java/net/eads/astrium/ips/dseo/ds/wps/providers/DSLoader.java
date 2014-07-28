@@ -38,7 +38,7 @@ public class DSLoader implements GenericProvider {
         String url = null;
         try {
             
-            url = URIHandling.Factory.getHandler("tomcat").getServerBaseURL();
+            url = URIHandling.Factory.getHandler("conf").getServerBaseURL();
         } catch (Exception e) {
             e.printStackTrace();
             DreamLogger.getThreadLogger(Thread.currentThread().getId()).info("Not possible to get the local host address : error is " + e.getClass().getName());
