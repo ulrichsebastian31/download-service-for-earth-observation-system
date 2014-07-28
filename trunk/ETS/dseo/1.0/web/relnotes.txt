@@ -1,0 +1,6 @@
+DSEO 1.0 Test Suite Release Notes
+==================================
+
+2014-07-22 (AIRBUS Defence & Space):
+- First version of the suite
+
