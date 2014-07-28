@@ -30,32 +30,81 @@
 	<!-- ############################################################################################################ -->
 	<!-- DSEO Compliance CTL Test suite-->
 	<!-- ############################################################################################################ -->
-	<ctl:suite name="dseo:DSEO_compliance-suite">
-		<ctl:title>OGC 13-043 (V 1.0.0) compliance test suite</ctl:title>
-		<ctl:description>Validates an implementation claiming compliance with respect to the "Download Service for Earch Observation Products" (13-043) Specification</ctl:description>
-		<ctl:starting-test>DSEO_Compliance_Tests</ctl:starting-test>
+	<ctl:suite name="dseo:compliance-suite">
+		<ctl:title>OGC 13-043 (V 1.0) compliance test suite</ctl:title>
+		<ctl:description>Validates an implementation claiming compliance with respect to the "Download Service for Earch Observation Products" (13-043) Best Practice</ctl:description>
+		<ctl:starting-test>dseo:compliance-tests</ctl:starting-test>
 	</ctl:suite>
 	<!-- ############################################################################################################ -->
 	<!-- DSEO Compliance Tests implementation-->
 	<!-- ############################################################################################################ -->
-	<ctl:test name="dseo:DSEO_Compliance_Tests">
+	<ctl:test name="dseo:compliance-tests">
 		<ctl:assertion>Run the tests specified in the  annex A</ctl:assertion>
-		<ctl:comment>Complete set of tests for verifying the compliance of the Server Under Test with respect to the Download Service for Earch Observation Products Specification</ctl:comment>
+		<ctl:comment>Complete set of tests for verifying the compliance of the Server Under Test with respect to the Download Service for Earch Observation Products Best Practice</ctl:comment>
 		<ctl:link title="OGC 13-043 section 11">Annex A</ctl:link>
 		<ctl:code>
+			<xsl:variable name="form-values">
+				<ctl:form height="500" width="800">
+					<body>
+						<h2 align="center">Compliance Test Suite of the OGC Download Service for Earch Observation Products (13-043) Best Practice</h2>
+						<h3 align="center">Input Parameters for the Executable Test Suite</h3>
+						<table border="0" cellpadding="2" cellspacing="2" bgcolor="#E9CFEC">
+							<tr>
+								<td align="left">Endpoint Reference of the service provider</td>
+								<td align="left">
+									<input name="stringvalue.sp.endpoint.HTTP.url" size="70" type="text" value="http://hma-demo-opensearch.spacebel.be/DSEOServer/mips/ds/Download_Server_1/dseo/1.0.0/"/>
+								</td>
+							</tr>
+							<tr>
+								<td align="left">Reference of the product path</td>
+								<td align="left">
+									<input name="stringvalue.cc.productpath" size="70" type="text" value="product/1"/>
+								</td>
+							</tr>
+							<tr>
+								<td align="left">Reference of the file path</td>
+								<td align="left">
+									<input name="stringvalue.cc.filepath" size="70" type="text" value="file/5"/>
+								</td>
+							</tr>
+							<tr>
+								<td align="left">Reference of the file mime</td>
+								<td align="left">
+									<input name="stringvalue.cc.filemime" size="70" type="text" value="image/png"/>
+								</td>
+							</tr>							
+						</table>
+						<input style="text-align:center" type="submit" value="Start Test"/>
+					</body>
+				</ctl:form>
+			</xsl:variable>		
 			<!-- ############################################################################################################ -->
 			<!-- DEFINITION OF COMMON INPUT PARAMETERS -->
 			<!-- ############################################################################################################ -->
+			<xsl:variable name="sp.endpoint.HTTP.url" select="$form-values/values/value[@key='stringvalue.sp.endpoint.HTTP.url' ]"/>
+			<xsl:variable name="cc.productpath" select="$form-values/values/value[@key='stringvalue.cc.productpath' ]"/>
+			<xsl:variable name="cc.filepath" select="$form-values/values/value[@key='stringvalue.cc.filepath' ]"/>
+			<xsl:variable name="cc.filemime" select="$form-values/values/value[@key='stringvalue.cc.filemime' ]"/>				
+			<!-- ************************************************************************************************* -->
+					
+			<!-- ############################################################################################################ -->
+			<!-- DEFINITION OF COMMON INPUT PARAMETERS -->
+			<!-- ############################################################################################################ -->						
+			<xsl:variable name="cc.dseoschema_URL">/var/local/teamengine/scripts/dseo/1.0/resources/schema/dseo/1.0/dseo.xsd</xsl:variable>
+			<xsl:variable name="cc.metalinkschema_URL">/var/local/teamengine/scripts/dseo/1.0/resources/schema/dseo/1.0/metalink.xsd</xsl:variable>
+			<xsl:variable name="cc.ows_schema_URL">/var/local/teamengine/scripts/dseo/1.0/resources/schema/ows/1.1.0/owsAll.xsd</xsl:variable>
+			<xsl:variable name="cc.messagedir">/var/local/teamengine/scripts/dseo/1.0/resources/netcatdemos</xsl:variable>
+			
 			<!--<xsl:variable name="sp.endpoint.HTTP.url">http://127.0.0.1:8080/IPSServices/mips/ds/Download_Server_1/dseo/1.0.0/</xsl:variable>-->
-			<xsl:variable name="sp.endpoint.HTTP.url">http://127.0.0.1:8080/DSEOServer/mips/ds/Download_Server_1/dseo/1.0.0/</xsl:variable>
-			<xsl:variable name="cc.dseoschema_URL">C:\Java\team_engine\schema\dseo\1.0\dseo.xsd</xsl:variable>
-			<xsl:variable name="cc.metalinkschema_URL">C:\Java\team_engine\schema\dseo\1.0\metalink.xsd</xsl:variable>
-			<xsl:variable name="cc.ows_schema_URL">C:\Java\team_engine\schema\ows\2.0\owsAll.xsd</xsl:variable>
-			<xsl:variable name="cc.messagedir">C:/Java/team_engine/netcatdemos</xsl:variable>
-			<xsl:variable name="cc.productpath">product/1</xsl:variable>
-			<xsl:variable name="cc.filepath">file/5</xsl:variable>
-			<xsl:variable name="cc.filemime">image/png</xsl:variable>
-			<ctl:message>------------------------------------------------------</ctl:message>
+			<!--<xsl:variable name="sp.endpoint.HTTP.url">http://127.0.0.1:8080/DSEOServer/mips/ds/Download_Server_1/dseo/1.0.0/</xsl:variable>-->			
+			<!--<xsl:variable name="cc.dseoschema_URL">C:\Java\team_engine\schema\dseo\1.0\dseo.xsd</xsl:variable>-->
+			<!--<xsl:variable name="cc.metalinkschema_URL">C:\Java\team_engine\schema\dseo\1.0\metalink.xsd</xsl:variable>-->
+			<!--<xsl:variable name="cc.ows_schema_URL">C:\Java\team_engine\schema\ows\2.0\owsAll.xsd</xsl:variable>-->
+			<!--<xsl:variable name="cc.messagedir">C:/Java/team_engine/netcatdemos</xsl:variable>-->
+			<!--<xsl:variable name="cc.productpath">product/1</xsl:variable>-->
+			<!--<xsl:variable name="cc.filepath">file/5</xsl:variable>-->
+			<!--<xsl:variable name="cc.filemime">image/png</xsl:variable>-->		
+			<!--
 			<ctl:message>The Input parameters are:                             </ctl:message>
 			<ctl:message> the address of the service provider is: <xsl:value-of select="$sp.endpoint.HTTP.url"/>
 			</ctl:message>
@@ -68,12 +117,13 @@
 			<ctl:message> the product to try is : <xsl:value-of select="$cc.productpath"/>
 			</ctl:message>
 			<ctl:message> the file to try is : <xsl:value-of select="$cc.filepath"/>
-			</ctl:message>
+			</ctl:message>   
+		-->	
 			<!-- ############################################################################################################ -->
-			<ctl:message>------------------------------------------------------</ctl:message>
+		<!--
 			<ctl:message>Testing started at : <xsl:value-of select="current-dateTime()"/>
 			</ctl:message>
-			<ctl:message>------------------------------------------------------</ctl:message>
+		-->	
 			<!-- ############################################################################################################ -->
 			<!-- Conformance Classes -->
 			<!-- ############################################################################################################ -->
