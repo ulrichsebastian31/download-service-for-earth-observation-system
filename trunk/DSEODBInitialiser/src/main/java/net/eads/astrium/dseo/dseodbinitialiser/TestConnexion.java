@@ -59,6 +59,39 @@ public class TestConnexion {
             connection = DriverManager.getConnection(url, user,passwd);
             System.out.println("Connection started !");
             
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return connection;
+    }
+    
+    public static Connection createDSEOConnexion() {
+        Connection connection = null;
+        try {
+            Class.forName("org.postgresql.Driver");
+            System.out.println("Driver O.K.");
+            
+//            String url = "jdbc:postgresql://10.2.200.247:5432/DSEODatabase";
+//            String url = "jdbc:postgresql://192.168.0.20:5432/DSEODatabase";
+            
+//            String user = "opensourcedbms";
+//            String passwd = "opensourcedbms";
+            
+            System.out.println("jdbc:postgresql://" + TestConnexionParameter.getUrl() + "/DSEODatabase"
+//                    + "/" + TestConnexionParameter.getDSEODatabase()
+                );
+            
+            String url = "jdbc:postgresql://" + TestConnexionParameter.getUrl() + "/DSEODatabase" 
+//                    + "/" + TestConnexionParameter.getDSEODatabase()
+                ;
+            String user = TestConnexionParameter.getUser();
+            String passwd = TestConnexionParameter.getPass();
+            
+            connection = DriverManager.getConnection(url, user,passwd);
+            System.out.println("Connection started !");
+            
             //Setting schema
             Statement stat = connection.createStatement();
             try {
