@@ -354,7 +354,9 @@ public class FileImporter {
                     
                 className = className.substring(0, className.lastIndexOf('.'));
                 
-                String cp = classPath.replaceAll("\\\\", ".");
+                String cp = null;
+                if (File.separator.equals("/")) cp = classPath.replaceAll("/", ".");
+                else cp = classPath.replaceAll("\\\\", ".");
                 
                 String classPackageName = cp.substring(cp.indexOf("net.eads.astrium.ips.dseo"));
                 
