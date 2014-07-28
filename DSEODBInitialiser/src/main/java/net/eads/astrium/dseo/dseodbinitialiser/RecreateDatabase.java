@@ -54,23 +54,25 @@ public class RecreateDatabase {
         else {
             toBeDone = args[3];
         }
-
+        
         System.out.println("Loading : " + toBeDone);
         
-       switch (toBeDone) {
+        TestConnexion.conn = TestConnexion.createConnexion();
+
+        switch (toBeDone) {
            case "All":
            case "UserDatabase":
                TestConnexionParameter.setUserDatabase("UserDatabase");
-               TestConnexion.conn = TestConnexion.createUserConnexion();
                TestConnexion.testDropAndCreateSchema("UserDatabase");
+               TestConnexion.conn = TestConnexion.createUserConnexion();
                CreateUserStruct.createUserStruct();
                new net.eads.astrium.dseo.dseodbinitialiser.usermanagement.TestInsertUpdate().test();
            if (toBeDone.equals("UserDatabase")) break;
                
            case "DSEODatabase":
                TestConnexionParameter.setDSEODatabase("DSEODatabase");
-               TestConnexion.conn = TestConnexion.createConnexion();
                TestConnexion.testDropAndCreateSchema("DSEODatabase");
+               TestConnexion.conn = TestConnexion.createDSEOConnexion();
                CreateStruct.createMain();
                Populate.populate();
 //               AddFiles.testInsertS1AFiles();
@@ -83,6 +85,7 @@ public class RecreateDatabase {
                
            case "AdminDatabase":
                TestConnexionParameter.setAdminDatabase("AdminDatabase");
+               TestConnexion.testDropAndCreateSchema("AdminDatabase");
                TestConnexion.conn = TestConnexion.createAdminDBConnexion();
                CreateAdminDatabase.createAdminTables();
 
@@ -90,7 +93,7 @@ public class RecreateDatabase {
                 InsertColumnsWithNames.insertAllColumns();
            break;
            default:
-               System.out.println("Parameter 4 (Database name) does not match one of : DSEODatabase,UserDatabase");
+               System.out.println("Parameter 4 (Database name) does not match one of : DSEODatabase,UserDatabase, AdminDatabase");
             break;
        }
     }
