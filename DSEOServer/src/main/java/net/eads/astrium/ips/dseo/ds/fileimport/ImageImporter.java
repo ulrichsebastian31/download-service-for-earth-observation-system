@@ -5,7 +5,6 @@
 
 package net.eads.astrium.ips.dseo.ds.fileimport;
 
-import edu.emory.mathcs.backport.java.util.Arrays;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,6 +19,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.eads.astrium.ips.dseo.ds.database.DSDBHandler;
