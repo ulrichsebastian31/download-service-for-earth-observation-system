@@ -53,7 +53,14 @@ public class MetalinkGenerator {
         for (String string : product.getFiles().keySet()) {
             DBProduct.DBProductFile file = product.getFiles().get(string);
             FileType f = files.addNewFile();
-            f.setName(file.getProductPath() + "/" + file.getName());
+            
+            if (file.getProductPath() == null || file.getProductPath().equals("")) {
+                f.setName(file.getName() + "." + file.getExtension());
+            }
+            else {
+                f.setName(file.getProductPath() + "/" + file.getName() + "." + file.getExtension());
+            }
+            
             ResourcesType resources = f.addNewResources();
             
             for (String string1 : urls.keySet()) {

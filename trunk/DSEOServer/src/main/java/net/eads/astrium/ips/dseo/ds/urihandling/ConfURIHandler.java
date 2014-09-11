@@ -41,6 +41,8 @@ public class ConfURIHandler implements URIHandling {
         
         String serverBaseAdress = props.getProperty("serverbaseadress");
         
+        DreamLogger.getThreadLogger(Thread.currentThread().getId()).info("Base Address from conf : " + serverBaseAdress);
+        
         return serverBaseAdress;
     }
 }
